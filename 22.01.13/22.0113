@@ -1,0 +1,66 @@
+a<-1
+a+2
+b<-2
+b*3
+c<-3
+c
+d<-3.5
+d
+abcd
+a+b
+a+b+c
+4/b
+5*b
+var1<-c(1,2,5,7,8)
+var1
+var2<-c(1:5)
+var21
+var2
+var3<-seq(1,5)
+var3
+var4<-seq(1,10,by=2)
+var4
+var5<-seq(1,10,by=3)
+var5
+var1
+var1+2
+var1+var2
+str1<-"a"
+str1
+str2<-"text"
+str3<-"Hello world!"
+str2,str3
+str2
+str3
+str4<-c(str1,str2,str3)
+str4
+str1<-"Hello"
+str2<-"World"
+str3<-"is"
+str4<-"good"
+str5<-c("str1","str2","str3","str4")
+str5
+str1
+a<-c(str1,str2,str3,str4)
+a
+str1<-a
+a
+str1
+x<-c(1,2,3)
+x
+mean(x)
+max(x)
+min(x)
+paste(str5,collapse=",")
+paste(str1,collapse=",")
+paste(str1,collapse="")
+paste(str1,collapse=" ")
+x_mean<-mean(x)
+x_mean
+str1_paste<-paste(str1,collpase=" ")
+str1_paste
+paste(str1,collapse=" ")
+str1_paste<-paste(str1,collpase=" ")
+str1_paste
+str1_paste<-paste(str1,collpase=" ")
+str1_paste
