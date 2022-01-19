@@ -1,0 +1,19 @@
+library(dplyr)
+exam<-read.csv("C:/Users/kkang/Desktop/R 실습자료/csv_exam.txt")
+exam
+exam%>%select(math)
+exam%>%select(english)
+exam%>%select(class,math,english)
+exam%>%select(-math)
+exam%>%select(-math,-english)
+exam%>%filter(class==1)%>%select(english)
+exam%>%filter(class==1)%>%select(english)
+exam%>%select(id,math)%>%head
+exam%>%select(id,math)%>%head(10)
+mpg%>%select(class,cty)%>%head(10)
+mpg_suv<-mpg%>%filter(class=="suv")
+mpg_compact<-mpg%>%filter(class=="compact")
+mpg_suv<-mean(mpg_suv$cty)
+mpg_compact<-mean(mpg_compact$cty)
+mpg_suv
+mpg_compact
