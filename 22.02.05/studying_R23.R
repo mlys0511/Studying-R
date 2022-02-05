@@ -1,0 +1,24 @@
+library(foreign)
+library(dplyr)
+library(ggplot2)
+library(readxl)
+welfare<-read.spss(file = "C:/Users/kkang/Desktop/github/Studying-R/Koweps_hpc10_2015_beta1.sav",to.data.frame=T)
+welfare<-rename(welfare,sex=h10_g3,birth=h10_g4,marriage=h10_g10,religion=h10_g11,income=p1002_8aq1,code_job=h10_eco9,code_region=h10_reg7)
+welfare$age<-2015-welfare$birth+1
+welfare<-welfare%>%mutate(ageg=ifelse(age<30,"young",ifelse(age<=59,"middle","old")))
+table(welfare$code_region)
+list_region
+welfare<-left_join(welfare,list_region,id="code_region")
+welfare%>%select(code_region,region)%>%head()
+region_ageg<-welfare%>%count(region,ageg)%>%group_by(region)%>%mutate(pct=round(n/sum(n)*100,2))
+ggplot(data=region_ageg,aes(x=region,y=pct,fill=ageg))+geom_col()+coord_flip()
+list_order_old<-region_ageg%>%filter(ageg=="old")%>%arrange(pct)
+list_order_old
+order<-list_order_old$region
+order
+ggplot(data=region_ageg,aes(x=region,y=pct,fill=ageg))+geom_col()+coord_flip()+scale_x_discrete(limits=order)
+levels(region_ageg$ageg)
+region_ageg$ageg<-factor(region_ageg$ageg,level=c("old","middle","young"))
+class(region_ageg$ageg)
+levels(region_ageg$ageg)
+ggplot(data=region_ageg,aes(x=region,y=pct,fill=ageg))+geom_col()+coord_flip()+scale_x_discrete(limits=order)
